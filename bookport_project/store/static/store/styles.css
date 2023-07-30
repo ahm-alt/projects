@@ -1,0 +1,128 @@
+.box {
+    background-color: #E5B299;
+    border-radius: 0px 0px 50px 6px;
+    padding: 10px;
+    color: white;
+}
+
+.checkout {
+    background-color: #E5B299;
+    border-radius: 6px;
+    padding: 5px;
+    color: white;
+}
+
+.image {
+    width: 100%;
+	
+    border-radius: 50px 6px 0px 0px;
+}
+
+.image2 {
+    width: 100%;
+    
+    border-radius: 40px;
+}
+
+.gif3 {
+    width: 100%;
+    background-color: #7D5A50;
+    
+}
+
+#navstyle {
+    background-color: #7D5A50;
+}
+
+body {
+    background-color: #fcdec075;
+}
+
+.btnstyle {
+    width: 100%;
+    background-color: #fcdec024;
+    color: #7d5a50c2;
+}
+
+.btnstyle2 {
+    width: 100%;
+    background-color: #fcdec0;
+    color: #7d5a50c2;
+    
+}
+.btnstyle3 {
+    width: 100%;
+    background-color:#fcdec024;
+    color: #f805059c;
+    
+}
+a:hover {
+    color: white;
+}
+
+#price {
+    float: right;
+}
+
+#cartlogo {
+    width:25px;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+.cartimage {
+    width: 100px;
+    border-radius: 8px;
+}
+
+.quantity {
+    width: 12px;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+}
+@keyframes hide {
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+    }
+    75% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%; 
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+    }
+}
+
+.anime {
+    animation-name: hide;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+.table {
+    --bs-table-bg: #E5B299;
+}
+
+#totalstl {
+    color: black;
+    float: right;
+    margin: 13px;
+    display: inline;
+}
+
+
+
+footer {
+    margin-top: 15px;
+    bottom:0;
+    width:100%;
+    
+    background:#7d5a5038;
+}
