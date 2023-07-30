@@ -1,0 +1,54 @@
+{% extends "store/layout.html" %}
+{% load static %}
+{% block body %}
+<div class="container mt-5 table-responsive">
+	<div >
+		<table class="table">
+			<td><a  class="btn btn-outline-dark" href="{% url 'index' %}">&#x2190; Continue Shopping</a></td>
+			<td><strong>Total Price: </strong><span id="totalp">{{total}}</span></td>
+			<td><strong>Items: </strong>A</td>
+			<td><a href="{% url 'checkout' %}" class="btn btn-success" style="float: right;">check out</a></td>
+			
+		</table>
+	  </div>
+    <table class="table" >
+        <thead>
+          <tr>
+			<th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+			{{message}}
+            {% for item in items %}
+          		<tr id="parent{{ item.book.id }}" class="anime">
+
+					
+            		<th scope="row"><img src="{{item.book.svg.url}}" class="cartimage"></th>
+            		<td>{{ item.book.title }}</td>
+            		<td>{{ item.book.price }}</td>
+            		<td>
+						
+						<div style="display: inline-block; padding-right:10px;">
+						<img src="{% static 'store/images2/plus.svg' %}" class="quantity change" id="{{ item.book.id }}" data-state="plus">
+						<p style="display: inline-block;" class="mx-1" id="p{{ item.book.id }}">{{ item.quantity }}</p>
+						<img src="{% static 'store/images2/minus.svg' %}" class="quantity change" id="{{ item.book.id }}" data-state="minus">
+						</div>
+					</td>
+					<td id="total{{ item.book.id}}">{% widthratio item.book.price 1 item.quantity  %}</td>
+          		</tr>
+            {% endfor %}
+        </tbody>
+      </table>
+	  
+	  
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'store/cart.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "store/layout.html" %}
+{% load static %}
+{% block body %}
+<div>
+    <img src="{% static 'store/images2/book3.svg' %}" class="gif3">
+</div>
+<div class="container">
+<div class="row" >
+    {% for category in categories %}
+    
+    <div class="row">
+        <div class="col-10">
+            <h3 class="mt-4" >{{ category.grade }}</h3>
+        </div>
+        
+        <div class="col-2 mt-4"><a href="/{{category.grade}}">see more</a></div>
+    </div>
+    <div class="table-responsive">
+        <table class="">
+            <tr> 
+            {% for book in category.books.all %}
+                <td class="ms-4">
+                    <div class="col-md-4 m-4">
+                    {% if book.svg %}
+                        <img src="{{book.svg.url}}" class="image m-0 p-0">
+                    {% endif %}
+                    <div class="box">
+                        <h5>{{ book.title }}</h5>
+                        <h4 id="price">{{ book.price }}$</h4>
+                        <div>
+                            <a href="book/{{book.pk}}" ><button type="button" class="btn btnstyle btn-outline mb-2">View item</button></a>
+                            {% if book.stock == 0 %}
+                            <button type="button" class="btn mb-2 btnstyle3">out of the stock</button>
+                            {% else %}
+                            {% if user.is_authenticated %}
+                            <button type="button" class="btn btnstyle mb-2 add" id='{{ book.id }}'>Add to cart</button>
+                            {% else %}
+                            <button type="button" class="btn btnstyle mb-2 add" id="none">Add to cart</button>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
+    </div>
+    {% endfor %}
+    <br>
+</div>
+</div>
+{% endblock %} 
+
+{% block script %}<script src="{% static 'store/index.js' %}"></script>
+                    
+{% endblock %}

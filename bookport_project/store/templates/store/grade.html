@@ -1,0 +1,39 @@
+{% extends "store/layout.html" %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+    
+        <h3 class="m-3">{{ grade }}</h3>
+          
+<div class="row" >
+    {% for book in books %}
+    <div class="col-md-3 mt-4">
+        {% if book.svg %}
+        <img src="{{book.svg.url}}" class="image5 m-0 p-0">
+        {% endif %}
+        <div class="box2">
+            <h5>{{ book.title }}</h5>
+            <h4 id="price">{{ book.price }}$</h4>
+            <div>
+                <a href="book/{{book.pk}}" ><button type="button" class="btn btnstyle btn-outline mb-2">View item</button></a>
+                {% if book.stock == 0 %}
+                <button type="button" class="btn mb-2 btnstyle3">out of the stock</button>
+                {% else %}
+                {% if user.is_authenticated %}
+                <button type="button" class="btn btnstyle mb-2 add" id='{{ book.id }}'>Add to cart</button>
+                {% else %}
+                <button type="button" class="btn btnstyle mb-2 add" id="none">Add to cart</button>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %} 
+
+{% block script %}<script src="{% static 'store/index.js' %}"></script>
+                    
+{% endblock %}

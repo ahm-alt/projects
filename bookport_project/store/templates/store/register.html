@@ -1,0 +1,31 @@
+{% extends "store/layout.html" %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <h3>Register</h3>
+    <div id="warning"></div>
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        <div class="m-3">
+            <input type="text" class="form-control" name="username" placeholder="Username" id="name">
+        </div>
+        <div class="form-text">{{ usernameerror }}</div>
+        <div class="m-3">
+            <input type="email" class="form-control" name="email" placeholder="email" id="email">
+        </div>
+        <div class="form-text"></div>
+        <div class="m-3">
+            <input type="password" class="form-control" name="password" placeholder="password" id="password">
+        </div>
+        <div class="form-text">{{ passerror }}</div>
+        <div class="m-3">
+            <input type="password" class="form-control" name="confirm" placeholder="confirm password" id="confirm">
+        </div>
+        <div class="form-text">{{ confirmerror }}</div>
+            <input class="btn btn-primary m-3" type="submit" value="Register">
+    </form>
+</div>
+{% endblock %}
+{% block script %}
+
+{% endblock %}
